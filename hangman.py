@@ -11,27 +11,28 @@
 
 # I encourage you to make methods for each piece of logic! You could imagine methods for things like displaying the word before each guess, knowing if the user has won, or knowing if the guess is correct.
 
+# 1. creat a function that stores gussed letter if they are the same as  letters in possible_words
+	# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
+def hiden_words(guessed,words):
+
+	guessed_letter= []
+	# loop through the parameter words(possible_words) and then loop through each of its letters
+	for word in words:
+		for letter in words:
+			print(letter)
+			if guessed == letter:
+				#if what the user gussed is in letter then add it to guessed_letter
+					guessed_letter += letter
+			# if its not show it as _ instead
+			else:
+				guessed_letter += "_"
+		return guessed_letter
+
 possible_words = ['ungulate', 'lungfish', 'axolotl', 'blobfish']
 print("Let's play Hangman!\n")
 while True:
 	print("Enter a letter")
 	guess = input('> ')
-
+	print(hiden_words(guess,possible_words))
 	if guess == 'quit':
-				break
-	# 1. creat a function that stores gussed letter if they are the same as  letters in possible_words
-	# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
-def hiden_words(guess,words):
-
-	guessed_letter= []
-	# loop through the parameter words(possible_words) and then loop through each letter of it
-	for word in words:
-		for letter in words:
-			print(letter)
-			if guess == letter:
-				#if what the user gussed is in letter then add it to guessed_letter
-					guessed_letter += guess
-
-			# if its not show it as _ instead
-			else:
-				guessed_letter += "_"
+		break
