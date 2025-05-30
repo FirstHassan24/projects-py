@@ -12,27 +12,28 @@
 # I encourage you to make methods for each piece of logic! You could imagine methods for things like displaying the word before each guess, knowing if the user has won, or knowing if the guess is correct.
 
 # 1. creat a function that stores gussed letter if they are the same as  letters in possible_words
-	# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
-def hiden_words(guessed,words):
+# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
 
-	guessed_letter= []
+#  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
+def display_word(guessed,words):
+    guessed_letter = []
 	# loop through the parameter words(possible_words) and then loop through each of its letters
-	for word in words:
-		for letter in words:
-			print(letter)
-			if guessed == letter:
+    for word in words:
+        for letter in word:
+            print(letter)
+            if guessed == letter:
 				#if what the user gussed is in letter then add it to guessed_letter
-					guessed_letter += letter
+                guessed_letter += letter
 			# if its not show it as _ instead
-			else:
-				guessed_letter += "_"
-		return guessed_letter
-
+            else:
+                guessed_letter += "_"
+        return guessed_letter
+hangman = ""
 possible_words = ['ungulate', 'lungfish', 'axolotl', 'blobfish']
 print("Let's play Hangman!\n")
 while True:
-	print("Enter a letter")
-	guess = input('> ')
-	print(hiden_words(guess,possible_words))
-	if guess == 'quit':
-		break
+    print("Enter a letter")
+    guess = input('> ')
+    print(display_word(guess,possible_words))
+    if guess == 'quit':
+        break
