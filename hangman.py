@@ -22,11 +22,11 @@ while True:
 	# 1. creat a function that stores gussed letter if they are the same as  letters in possible_words
 	# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
 def hiden_words(guess,words):
-	words = possible_words
-	guessed_letter=""
 
-	for word in words:
-		for letter in word:
+	guessed_letter= []
+
+	for words in possible_words:
+		for letter in words:
 			print(letter)
 			if guess in letter:
 				#if what the user gussed is in letter then add it to guessed_letter
