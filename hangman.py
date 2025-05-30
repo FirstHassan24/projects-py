@@ -24,14 +24,14 @@ while True:
 def hiden_words(guess,words):
 
 	guessed_letter= []
-
-	for words in possible_words:
+	# loop through the parameter words(possible_words) and then loop through each letter of it
+	for word in words:
 		for letter in words:
 			print(letter)
-			if guess in letter:
+			if guess == letter:
 				#if what the user gussed is in letter then add it to guessed_letter
 					guessed_letter += guess
 
-				# print(guess)
+			# if its not show it as _ instead
 			else:
 				guessed_letter += "_"
