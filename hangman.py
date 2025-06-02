@@ -38,3 +38,9 @@ while True:
     print(display_word(guess,possible_word))
 
 #2. make a variable for all of the incorrect guess and display it
+incorrect_letters = ""
+#loops through possible_word and see if guess is not the same as possible_word:
+for correct_letter in possible_word:
+    if guess != correct_letter:
+        incorrect_letters += guess
+print(incorrect_letters)
