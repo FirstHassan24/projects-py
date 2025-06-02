@@ -15,6 +15,14 @@
 # 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
 
 #  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
+hangman = ""
+possible_word = 'ungulate'
+print("Let's play Hangman!\n")
+while True:
+    print("Enter a letter")
+    guess = input('> ')
+    if guess == 'quit':
+        break
 def display_word(guessed,words):
     guessed_letter = []
 	# loop through the parameter words(possible_words) and then loop through each of its letters
@@ -28,12 +36,4 @@ def display_word(guessed,words):
             else:
                 guessed_letter += "_"
         return guessed_letter
-hangman = ""
-possible_words = ['ungulate', 'lungfish', 'axolotl', 'blobfish']
-print("Let's play Hangman!\n")
-while True:
-    print("Enter a letter")
-    guess = input('> ')
-    print(display_word(guess,possible_words))
-    if guess == 'quit':
-        break
+    print(display_word(guess,possible_word))
