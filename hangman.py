@@ -36,3 +36,5 @@ while True:
     if guess == 'quit':
         break
     print(display_word(guess,possible_word))
+
+#2. make a variable for all of the incorrect guess and display it
