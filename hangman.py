@@ -12,7 +12,7 @@
 # I encourage you to make methods for each piece of logic! You could imagine methods for things like displaying the word before each guess, knowing if the user has won, or knowing if the guess is correct.
 
 # 1. creat a function that stores gussed letter if they are the same as  letters in possible_words
-# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user guessed they appear as _:
+# 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user didnt guessed they appear as _:
 
 #  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
 def display_word(guessed,words):
@@ -25,7 +25,7 @@ def display_word(guessed,words):
             guessed_letter += letters
 			# if its not show it as _ instead
         else:
-            guessed_letter += "_"
+            guessed_letter += "_ "
     return guessed_letter
 hangman = ""
 possible_word = 'ungulate'
