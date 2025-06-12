@@ -16,7 +16,6 @@
 
 #  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
 incorrect_letters = ""#stores incorrec guesses
-
 def display_word(guessed,words):
     #store the guessed letters
     guessed_letter = ""
@@ -42,4 +41,5 @@ while True:
             #loops through possible_word and see if the letters in  guess is not the same as possible_word:
     if guess not in possible_word:
         incorrect_letters += guess
-        print(incorrect_letters)
+        print("incorrect letters:",incorrect_letters)
+# how do i make it so all my correct letters dont reset
