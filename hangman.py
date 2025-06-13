@@ -16,13 +16,15 @@
 
 #  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
 incorrect_letters = ""#stores incorrec guesses
-def display_word(guessed,words):
+all_guessed = ''
+
+def display_word(guessed,words,all_guessed):
     #store the guessed letters
     guessed_letter = ""
 	# loop through the parameter words(possible_words) and then loop through each of its letters
+    print("all guessed:",all_guessed)
     for letters in words:
-        if guessed == letters:
-				#if what the user gussed is in letter then add it to guessed_letter
+        if letters in all_guessed:#checks if the guessed letters are in possible word
             guessed_letter += letters
 			# if its not show it as _ instead
         else:
@@ -34,12 +36,14 @@ print("Let's play Hangman!\n")
 while True:
     print("Enter a letter")
     guess = input('> ')
+    if guess not in all_guessed:
+        all_guessed += guess #everytime it loops it adds the inputs to guess
     if guess == 'quit':
         break
-    print(display_word(guess,possible_word))
+    print(display_word(guess,possible_word,all_guessed))
             #2. make a variable for all of the incorrect guess and display it
             #loops through possible_word and see if the letters in  guess is not the same as possible_word:
     if guess not in possible_word:
         incorrect_letters += guess
         print("incorrect letters:",incorrect_letters)
-# how do i make it so all my correct letters dont reset
+# end:what does the 3rd paramater do?
