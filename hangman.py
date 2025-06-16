@@ -45,6 +45,10 @@ while True:
         if len(incorrect_letters) >= 7: # stops the loop when it reaches 7 wrong letters
                 print("to many wrong answeres you lose :(")
                 break
+        #2.1 On revealing the entire word, the player wins the game (display a message and break out of the loop).
+        if len(all_guessed) ==len(possible_word):
+            print("congratulation you win")
+            break
     if guess == 'quit':
         break
     print(display_word(guess,possible_word,all_guessed))
