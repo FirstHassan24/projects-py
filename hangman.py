@@ -15,9 +15,9 @@
 # 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user didnt guessed they appear as _:
 
 #  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
-incorrect_letters = ""#stores incorrec guesses
+incorrect_letters = []#stores incorrect guesses
 all_guessed = ''
-
+count = 0 # tracks the amount of wrong guesses
 def display_word(guessed,words,all_guessed):
     #store the guessed letters
     guessed_letter = ""
@@ -38,12 +38,13 @@ while True:
     guess = input('> ')
     if guess not in all_guessed:
         all_guessed += guess #everytime it loops it adds the inputs to guess
+    if guess not in possible_word:#2. make a variable for all of the incorrect guess and display it
+        incorrect_letters += guess
+        print("incorrect letters:",incorrect_letters)
+        # 2.1 # - On the seventh incorrect guess, the player loses the game (display a message and break out of the loop).
+        if len(incorrect_letters) >= 7: # stops the loop when it reaches 7 wrong letters
+                print("to many wrong answeres you lose :(")
+                break
     if guess == 'quit':
         break
     print(display_word(guess,possible_word,all_guessed))
-            #2. make a variable for all of the incorrect guess and display it
-            #loops through possible_word and see if the letters in  guess is not the same as possible_word:
-    if guess not in possible_word:
-        incorrect_letters += guess
-        print("incorrect letters:",incorrect_letters)
-# end:what does the 3rd paramater do?
