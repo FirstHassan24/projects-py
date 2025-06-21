@@ -24,10 +24,11 @@ def display_word(word,guessed_letters):
     for letter in word:
         if letter in guessed_letters:#checks if the guessed letters are in possible word
             correct_letters += letter
+
 			# if its not show it as _ instead
         else:
             correct_letters += " _ "
-    print(correct_letters)
+    return correct_letters
 
 def play_game():
     print("i am in play games")
@@ -51,12 +52,19 @@ def play_game():
                     print("to many wrong answeres you lose :(")
                     break
             #2.2 On revealing the entire word, the player wins the game (display a message and break out of the loop).
-        if guessed_letters == word:# tracks how many words you guess correctly and compare it
+        current_progress = display_word(word,guessed_letters) # shows the current displayed letters
+        print("progress",current_progress)# shows how many left untill all _ is replaced
+        if "_" not in current_progress:# checks if theirs isnt anymore _ left
             print("congratulation you win")
             break
         if guess == 'quit':
             break
+        # start:2-3 You should validate that the input is valid: must be one letter, a to z. Be sure to handle capital letters, but I'll leave how up to you. If the input is invalid, tell the player.
+
+        # q:how do i make it so the code check for duplicat letter?
+        #loop over  it and use count to check for dupes
+        for dupes in current_progress:
+            if current_progress.count(dupes) > 1 or dupes.upper():
+                print("invalid letter")
         display_word(word,guessed_letters)
-        #end: how do i move guessed_letters outside the function scope and make it a globall scope?
 play_game()
-# display_word("hi","ha")
