@@ -13,42 +13,50 @@
 
 # 1. creat a function that stores gussed letter if they are the same as  letters in possible_words
 # 1. if they guess a letter loop over the  list and see if its in their, if it is make it appear in its location ,except for the letter that the user didnt guessed they appear as _:
+# endgame:   # TODO make a method that registers guess into the right variable,make a methode that shows True if wone False if lost
 
 #  anyhting i need to track make a variable, pick a word from the list, what global variables do you think you need?
-incorrect_letters = []#stores incorrect guesses
-all_guessed = ''
-count = 0 # tracks the amount of wrong guesses
-def display_word(guessed,words,all_guessed):
+def display_word(word,guessed_letters):
     #store the guessed letters
-    guessed_letter = ""
+    correct_letters = ""
 	# loop through the parameter words(possible_words) and then loop through each of its letters
-    print("all guessed:",all_guessed)
-    for letters in words:
-        if letters in all_guessed:#checks if the guessed letters are in possible word
-            guessed_letter += letters
+    print("guessedletters:",guessed_letters)
+    for letter in word:
+        if letter in guessed_letters:#checks if the guessed letters are in possible word
+            correct_letters += letter
 			# if its not show it as _ instead
         else:
-            guessed_letter += "_ "
-    return guessed_letter
-hangman = ""
-possible_word = 'ungulate'
-print("Let's play Hangman!\n")
-while True:
-    print("Enter a letter")
-    guess = input('> ')
-    if guess not in all_guessed:
-        all_guessed += guess #everytime it loops it adds the inputs to guess
-    if guess not in possible_word:#2. make a variable for all of the incorrect guess and display it
-        incorrect_letters += guess
-        print("incorrect letters:",incorrect_letters)
-        # 2.1 # - On the seventh incorrect guess, the player loses the game (display a message and break out of the loop).
-        if len(incorrect_letters) >= 7: # stops the loop when it reaches 7 wrong letters
-                print("to many wrong answeres you lose :(")
-                break
-        #2.1 On revealing the entire word, the player wins the game (display a message and break out of the loop).
-        if len(all_guessed) ==len(possible_word):
+            correct_letters += " _ "
+    print(correct_letters)
+
+def play_game():
+    print("i am in play games")
+
+    incorrect_letters = []#stores incorrect guesses
+    guessed_letters = ''
+    # TODO make a list of words and possible_word will pick from it
+    word = 'ungulate'
+    print("Let's play Hangman!\n")
+    while True:
+        print("Enter a letter")
+        guess = input('> ')
+        # TODO: dont put the same letter in incorrect_letter twice
+        if guess not in guessed_letters:
+            guessed_letters += guess #everytime it loops it adds the inputs to guess
+        if guess not in word:#2. make a variable for all of the incorrect guess and display it
+            incorrect_letters += guess
+            print("incorrect letters:",incorrect_letters)
+            # 2.1 # - On the seventh incorrect guess, the player loses the game (display a message and break out of the loop).
+            if len(incorrect_letters) >= 7: # stops the loop when it reaches 7 wrong letters
+                    print("to many wrong answeres you lose :(")
+                    break
+            #2.2 On revealing the entire word, the player wins the game (display a message and break out of the loop).
+        if guessed_letters == word:# tracks how many words you guess correctly and compare it
             print("congratulation you win")
             break
-    if guess == 'quit':
-        break
-    print(display_word(guess,possible_word,all_guessed))
+        if guess == 'quit':
+            break
+        display_word(word,guessed_letters)
+        #end: how do i move guessed_letters outside the function scope and make it a globall scope?
+play_game()
+# display_word("hi","ha")
