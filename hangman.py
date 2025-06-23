@@ -62,8 +62,11 @@ def play_game():
         # start:2-3 You should validate that the input is valid: must be one letter, a to z. Be sure to handle capital letters, but I'll leave how up to you. If the input is invalid, tell the player.
 
         # q:how do i make it so the code check for duplicat letter?
-        #use count to check for dupes
-        if current_progress.count(guess) > 1:
-            print("invalid letter")
-        display_word(word,guessed_letters)
+        #store all the guessed letters in a list
+        #use count to check for dupes in that list
+        if guess in guessed_letters:#checks if the letter is already guessed
+            print("you already guessed that letter, try again")
+
+        # print("all guessed letters:",all_guessed_letters)
+        #end: if the user trys to input the same letter raise an error
 play_game()
