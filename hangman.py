@@ -41,6 +41,14 @@ def play_game():
     while True:
         print("Enter a letter")
         guess = input('> ')
+           # start:2-3 You should validate that the input is valid: must be one letter, a to z. Be sure to handle capital letters, but I'll leave how up to you. If the input is invalid, tell the player.
+
+        # q:how do i make it so the code check for duplicat letter?
+        #store all the guessed letters in a list
+        #use count to check for dupes in that list
+        if guess in guessed_letters:#checks if the letter is already guessed
+            print("you already guessed that letter, try again")
+            continue
         # TODO: dont put the same letter in incorrect_letter twice
         if guess not in guessed_letters:
             guessed_letters += guess #everytime it loops it adds the inputs to guess
@@ -59,13 +67,6 @@ def play_game():
             break
         if guess == 'quit':
             break
-        # start:2-3 You should validate that the input is valid: must be one letter, a to z. Be sure to handle capital letters, but I'll leave how up to you. If the input is invalid, tell the player.
-
-        # q:how do i make it so the code check for duplicat letter?
-        #store all the guessed letters in a list
-        #use count to check for dupes in that list
-        if guess in guessed_letters:#checks if the letter is already guessed
-            print("you already guessed that letter, try again")
 
         # print("all guessed letters:",all_guessed_letters)
         #end: if the user trys to input the same letter raise an error
