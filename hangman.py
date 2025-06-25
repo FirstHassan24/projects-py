@@ -70,3 +70,4 @@ def play_game():
         # print("all guessed letters:",all_guessed_letters)
         #end: if the user trys to input the same letter raise an error
 play_game()
+#hi
