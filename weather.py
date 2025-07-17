@@ -32,7 +32,7 @@ def get_info(city):
 city_info = get_info(city)#displays the user input
 if city_info: #checks for specific info in the city information
     print(f"name:{city_info["location"]["name"]}")#checks for my country inside location
-    # print(f"forcast:{city_info["forecast"]["forecastday"]}")#TODO: why do i also get nested key when i only ask for these 2
+    # print(f"forcast:{city_info["forecast"]["forecastday"]}"
 #TODO: on city_info inside forcast within forecastday displaying the date, go inside the nested "day" key and retrieve the "condition" and "text"  values then get the max temp and min temp:
 forecastdays = city_info["forecast"]["forecastday"] #gives me stright access to the dictionary that haves the day,date keys
 for day in forecastdays:
